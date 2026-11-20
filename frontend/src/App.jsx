@@ -1,11 +1,40 @@
 
 import './App.css';
-import { Suspense } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
+import { playHello } from './animations/hello';
 
-function Avatar() {
+function Avatar({ testArm }) {
   const { scene } = useGLTF('/models/Female_Adult_03.glb');
+  const originalRotations = useRef(null);
+
+  useEffect(() => {
+    const upperArm = scene.getObjectByName('Bip01_R_UpperArm');
+    const forearm = scene.getObjectByName('Bip01_R_Forearm');
+
+    if (!upperArm || !forearm) {
+      console.error('Right arm bones not found');
+      return;
+    }
+
+    if (!originalRotations.current) {
+      originalRotations.current = {
+        upperArm: upperArm.rotation.clone(),
+        forearm: forearm.rotation.clone()
+      };
+    }
+
+    const original = originalRotations.current;
+
+    // Restore the original pose first.
+    upperArm.rotation.copy(original.upperArm);
+    forearm.rotation.copy(original.forearm);
+
+    if (testArm) {
+      playHello(scene);
+    }
+  }, [scene, testArm]);
 
   return (
     <primitive
@@ -17,9 +46,10 @@ function Avatar() {
 }
 
 function App() {
+  const [testArm, setTestArm] = useState(false);
+
   return (
     <div className="app">
-
       <nav className="navbar">
         <h2 className="logo">SYNORA<span>.</span></h2>
 
@@ -33,7 +63,6 @@ function App() {
       </nav>
 
       <main className="hero" id="home">
-
         <section className="hero-content">
           <p className="tagline">
             ✦ AI POWERED SIGN LANGUAGE COMPANION
@@ -86,15 +115,12 @@ function App() {
         </section>
 
         <section className="avatar-section">
-
           <div className="avatar-glow">
-
             <div style={{ width: '100%', height: '500px' }}>
-
               <Canvas
                 camera={{
-                  position: [0, 1, 5],
-                  fov: 40
+                  position: [0, 1.2, 3.5],
+                  fov: 35
                 }}
               >
                 <ambientLight intensity={1} />
@@ -105,30 +131,47 @@ function App() {
                 />
 
                 <Suspense fallback={null}>
-                  <Avatar />
+                  <Avatar testArm={testArm} />
                 </Suspense>
 
                 <OrbitControls
                   enableZoom={true}
                   enablePan={false}
                 />
-
               </Canvas>
-
             </div>
-
           </div>
 
           <div className="floating-label">
             ● SYNORA AI ASSISTANT
           </div>
 
-        </section>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '10px',
+              marginTop: '12px'
+            }}
+          >
+            <button
+              className="primary-button"
+              onClick={() => setTestArm(true)}
+            >
+              Play HELLO
+            </button>
 
+            <button
+              className="secondary-button"
+              onClick={() => setTestArm(false)}
+            >
+              Reset Pose
+            </button>
+          </div>
+        </section>
       </main>
 
       <section className="translator" id="translate">
-
         <p className="tagline">
           YOUR COMMUNICATION SPACE
         </p>
@@ -138,7 +181,6 @@ function App() {
         </h2>
 
         <div className="option-cards">
-
           <div className="option-card">
             <span>📷</span>
             <h3>Sign Language</h3>
@@ -159,7 +201,6 @@ function App() {
             <p>Upload an image for AI-powered understanding.</p>
             <button>Upload Image</button>
           </div>
-
         </div>
       </section>
 
@@ -167,7 +208,6 @@ function App() {
         <h2>SYNORA<span>.</span></h2>
         <p>Breaking communication barriers through AI.</p>
       </footer>
-
     </div>
   );
 }

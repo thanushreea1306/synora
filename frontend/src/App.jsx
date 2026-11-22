@@ -9,28 +9,55 @@ function Avatar({ testArm }) {
   const { scene } = useGLTF('/models/Female_Adult_03.glb');
   const originalRotations = useRef(null);
 
+  // Save original arm and finger rotations
   useEffect(() => {
+    const bones = {};
+
+    scene.traverse((object) => {
+      if (
+        object.isBone &&
+        (
+          object.name === 'Bip01_R_UpperArm' ||
+          object.name === 'Bip01_R_Forearm' ||
+          object.name.includes('Bip01_R_Finger')
+        )
+      ) {
+        bones[object.name] = object.rotation.clone();
+      }
+    });
+
+    originalRotations.current = bones;
+
+    // Log the original right upper-arm rotation
     const upperArm = scene.getObjectByName('Bip01_R_UpperArm');
-    const forearm = scene.getObjectByName('Bip01_R_Forearm');
 
-    if (!upperArm || !forearm) {
-      console.error('Right arm bones not found');
-      return;
+    if (upperArm) {
+      console.log('Right arm original rotation:', {
+        x: upperArm.rotation.x,
+        y: upperArm.rotation.y,
+        z: upperArm.rotation.z
+      });
     }
 
-    if (!originalRotations.current) {
-      originalRotations.current = {
-        upperArm: upperArm.rotation.clone(),
-        forearm: forearm.rotation.clone()
-      };
-    }
+    console.log('Original arm and finger rotations saved');
+  }, [scene]);
 
-    const original = originalRotations.current;
+  // Apply or reset HELLO pose
+  useEffect(() => {
+    if (!originalRotations.current) return;
 
-    // Restore the original pose first.
-    upperArm.rotation.copy(original.upperArm);
-    forearm.rotation.copy(original.forearm);
+    // Reset all saved bones first
+    Object.entries(originalRotations.current).forEach(
+      ([name, rotation]) => {
+        const bone = scene.getObjectByName(name);
 
+        if (bone) {
+          bone.rotation.copy(rotation);
+        }
+      }
+    );
+
+    // Apply HELLO pose if selected
     if (testArm) {
       playHello(scene);
     }

@@ -1,15 +1,17 @@
 
+import Lessons from './Lessons';
 import './App.css';
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
-import { playHello } from './animations/hello';
+import { playSign } from './animations/signPlayer';
+import Camera from './Camera';
+import Chat from './Chat';
 
 function Avatar({ testArm }) {
   const { scene } = useGLTF('/models/Female_Adult_03.glb');
   const originalRotations = useRef(null);
 
-  // Save original arm and finger rotations
   useEffect(() => {
     const bones = {};
 
@@ -28,7 +30,6 @@ function Avatar({ testArm }) {
 
     originalRotations.current = bones;
 
-    // Log the original right upper-arm rotation
     const upperArm = scene.getObjectByName('Bip01_R_UpperArm');
 
     if (upperArm) {
@@ -42,11 +43,9 @@ function Avatar({ testArm }) {
     console.log('Original arm and finger rotations saved');
   }, [scene]);
 
-  // Apply or reset HELLO pose
   useEffect(() => {
     if (!originalRotations.current) return;
 
-    // Reset all saved bones first
     Object.entries(originalRotations.current).forEach(
       ([name, rotation]) => {
         const bone = scene.getObjectByName(name);
@@ -57,9 +56,8 @@ function Avatar({ testArm }) {
       }
     );
 
-    // Apply HELLO pose if selected
     if (testArm) {
-      playHello(scene);
+      playSign(scene, 'HELLO');
     }
   }, [scene, testArm]);
 
@@ -74,6 +72,28 @@ function Avatar({ testArm }) {
 
 function App() {
   const [testArm, setTestArm] = useState(false);
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const imageInputRef = useRef(null);
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      if (!file.type.startsWith('image/')) {
+        alert('Please select a valid image file.');
+        return;
+      }
+
+      const imageURL = URL.createObjectURL(file);
+      setUploadedImage(imageURL);
+    }
+  };
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="app">
@@ -83,10 +103,16 @@ function App() {
         <div className="nav-links">
           <a href="#home">Home</a>
           <a href="#translate">Translator</a>
+          <a href="#lessons">Lessons</a>
           <a href="#about">About</a>
         </div>
 
-        <button className="nav-button">Get Started</button>
+        <button
+          className="nav-button"
+          onClick={() => scrollToSection('lessons')}
+        >
+          Get Started
+        </button>
       </nav>
 
       <main className="hero" id="home">
@@ -109,16 +135,15 @@ function App() {
           <div className="hero-buttons">
             <button
               className="primary-button"
-              onClick={() =>
-                document.getElementById('translate').scrollIntoView({
-                  behavior: 'smooth'
-                })
-              }
+              onClick={() => scrollToSection('translate')}
             >
               Start Communicating →
             </button>
 
-            <button className="secondary-button">
+            <button
+              className="secondary-button"
+              onClick={() => scrollToSection('lessons')}
+            >
               Explore SYNORA
             </button>
           </div>
@@ -207,31 +232,88 @@ function App() {
           How would you like to communicate?
         </h2>
 
+        <Camera />
+
         <div className="option-cards">
           <div className="option-card">
             <span>📷</span>
             <h3>Sign Language</h3>
             <p>Use your webcam to recognize ISL signs.</p>
-            <button>Open Camera</button>
+
+            <button onClick={() => scrollToSection('translate')}>
+              Open Camera
+            </button>
           </div>
 
           <div className="option-card">
             <span>💬</span>
             <h3>Text Chat</h3>
             <p>Type a message and communicate with AI.</p>
-            <button>Start Chatting</button>
+
+            <button onClick={() => scrollToSection('chat')}>
+              Start Chatting
+            </button>
           </div>
 
           <div className="option-card">
             <span>🖼️</span>
             <h3>Upload Image</h3>
             <p>Upload an image for AI-powered understanding.</p>
-            <button>Upload Image</button>
+
+            <input
+              type="file"
+              accept="image/*"
+              ref={imageInputRef}
+              onChange={handleImageUpload}
+              style={{ display: 'none' }}
+            />
+
+            <button
+              onClick={() => imageInputRef.current.click()}
+            >
+              Upload Image
+            </button>
+
+            {uploadedImage && (
+              <div style={{ marginTop: '20px' }}>
+                <img
+                  src={uploadedImage}
+                  alt="Uploaded ISL sign"
+                  style={{
+                    width: '100%',
+                    maxWidth: '250px',
+                    borderRadius: '12px',
+                    border: '2px solid #8c70ff',
+                    marginTop: '10px'
+                  }}
+                />
+
+                <p style={{ marginTop: '12px' }}>
+                  Image uploaded successfully!
+                </p>
+
+                <button
+                  onClick={() => {
+                    URL.revokeObjectURL(uploadedImage);
+                    setUploadedImage(null);
+                    imageInputRef.current.value = '';
+                  }}
+                >
+                  Remove Image
+                </button>
+              </div>
+            )}
           </div>
+        </div>
+
+        <div id="chat">
+          <Chat />
         </div>
       </section>
 
-      <footer>
+      <Lessons />
+
+      <footer id="about">
         <h2>SYNORA<span>.</span></h2>
         <p>Breaking communication barriers through AI.</p>
       </footer>

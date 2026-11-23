@@ -1,0 +1,42 @@
+{
+  "experiment_id": "synora_rf_v3_native_frames_20261123",
+  "test_split_use": "final_evaluation_only",
+  "model_selection_used_test": false,
+  "calibration_used_test": false,
+  "python": "3.14.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "input_hashes": {
+    "native_features/base_tensor.npy": "202bf969714dc2eb9095b8072d45093b9ea1ce2ddaa2b5530bf11fbd96361c34",
+    "native_features/video_manifest.csv": "9b372e9a2ae433cbab310a51600562992443a8dd1e74a99fc9fcc1755d48cb11",
+    "resampled_features/mlp_tensor.npy": "d5f11c838f112cf8e2b07cac799d770076a61ecb81205ddaa9924d7cb763bb42",
+    "resampled_features/video_manifest.csv": "6d01aa9fe2f10ace38987d5ec21bdb9656c8dfd6f9e0f0213a1f4c32e2bfbc59",
+    "native_selected/weights.npz": "bc8cac0e7b39feb64fec8511233eea21dbf6249be40875e14f22f0be930ff159",
+    "native_selected/config.json": "ef297deb3dae5ba659df7eb362760782c85302401f6b2e4252b0df20f93f8618",
+    "baseline_selected/weights.npz": "8225eacdca2ed1b4208bad3fce0463b8e8478e0845f68c1ebd21509413dabf61",
+    "baseline_selected/config.json": "9262b3607802bce35e80cc0e956dd05b66fa11ca61ec2c179781840280691b55",
+    "native_calibration.json": "d5ce3d31f62799c1e6ff6ec2ab76dce785556484152e43824238543b37a3db7e",
+    "baseline_calibration.json": "7b4055ac2d4dbfec2228962eb26f9749a80782c53306293cffa8cdde2063518f"
+  },
+  "output_hashes": {
+    "test_metrics.json": "4b9c4f4b6b646a7271b5b7c42f8b418180b6ace4f275eac770e8b8683fe9eecc",
+    "robustness.json": "d4cf9c57d792b28174e1237987582ab4109267b1167dd7dda72e8d02ead1d8d2",
+    "per_sample_predictions.csv": "2f75cf74c6d6a3cd2a8c93ace21eb259202ef04f41a4668db3625ea2e3e2a164"
+  },
+  "reproduction_command": [
+    "C:\\Users\\thanu\\synora\\ml\\.venv\\Scripts\\python.exe",
+    "-m",
+    "ml.src.experiments.rf_v3_native_frames.evaluate",
+    "--data-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v3_native_frames",
+    "--model-root",
+    "C:\\Users\\thanu\\synora\\ml\\models\\experiments\\rf_v3_native_frames",
+    "--report-root",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\experiments\\rf_v3_native_frames",
+    "--baseline-model-root",
+    "C:\\Users\\thanu\\synora\\ml\\models\\experiments\\rf_v4_live_alignment\\selected",
+    "--baseline-report-root",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\experiments\\rf_v4_live_alignment",
+    "--v1-config",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\synora_baseline_v1_20261121\\experiment_config.json"
+  ]
+}

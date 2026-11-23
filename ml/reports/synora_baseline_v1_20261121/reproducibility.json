@@ -1,0 +1,100 @@
+{
+  "created_utc": "2026-11-21T13:00:02.883237+00:00",
+  "seed": 20261121,
+  "python_executable": "C:\\Users\\thanu\\synora\\ml\\.venv\\Scripts\\python.exe",
+  "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "package_versions": {
+    "numpy": "2.5.5",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "matplotlib": "3.11.2",
+    "pandas": "3.1.1",
+    "python": null,
+    "python_runtime": "3.14.0"
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "reproduction_command": [
+    "C:\\Users\\thanu\\synora\\ml\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\thanu\\synora\\ml\\src\\train_baselines_v1.py"
+  ],
+  "numeric_mode": "float32 NumPy linear algebra; deterministic fixed-seed initialization; no dropout",
+  "input_hashes": {
+    "features/config.json": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\config.json",
+      "sha256": "d0aa5d2a2d323d976faa0b18f3942cf049749e8b5ef7937f1dd2c9062c01e8f8",
+      "used": true
+    },
+    "features/rf_feature_schema.json": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\rf_feature_schema.json",
+      "sha256": "dc68d8b4d3f1096d41c83ad2b0a4db7b04432b35fbd68e7d85e1e6aeeb17db63",
+      "used": true
+    },
+    "features/mlp_feature_schema.json": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\mlp_feature_schema.json",
+      "sha256": "42b6251b591dd996628e4e9a8938b0ce2410cf045bfc8a09ff80327ece8b2049",
+      "used": true
+    },
+    "features/validation_report.json": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\validation_report.json",
+      "sha256": "2ba2fb556db4b095b77ae5ab297f163b98730e833838c76961f10e1a43606784",
+      "used": true
+    },
+    "features/video_manifest.csv": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\video_manifest.csv",
+      "sha256": "846df7ed02962e867f670367e55011bf1ee128b035f16cd25923d896f84cc631",
+      "used": true
+    },
+    "features/rf_features.npy": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\rf_features.npy",
+      "sha256": "b01add88ae1e3a40d8902bf52e50ba3fbe160a45fdaf4f42c4baf8bb37edff66",
+      "used": true
+    },
+    "features/rf_features.csv": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\rf_features.csv",
+      "sha256": "3ac6772f6e924e28c10586bf1a5a0c2f20b3f23d902fb6d078f90a3688605cf8",
+      "used": true
+    },
+    "features/mlp_tensor.npy": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\mlp_tensor.npy",
+      "sha256": "63b3f2ebf4632c3cc65e8143c19d9cfdbf35722cecb02fdbeed0b9c6ccfa617b",
+      "used": true
+    },
+    "features/mlp_flat.npy": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\mlp_flat.npy",
+      "sha256": "902aaaed4b9ed67fa41149e29da09e6d3c7953dd5114ea6d00d291634b5f8304",
+      "used": false
+    },
+    "features/mlp_preprocessing.npz": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\mlp_preprocessing.npz",
+      "sha256": "ae9c889b6daea43795b8078d359233ffaa4f2f1035b31f4d4fe8e88169948b55",
+      "used": true
+    },
+    "features/split_inventories.json": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\synora_include21_video_features_v1\\split_inventories.json",
+      "sha256": "df581ce18368ceb2e16f8201b879d7c56b7f1560a66cb6a95d197169f87d1d7c",
+      "used": true
+    },
+    "preparation_script": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\src\\prepare_video_features.py",
+      "sha256": "614c5da533af109504bb6c922bea841d3ea5ce84889cf38e6ccb4f462ee50902",
+      "used": true
+    },
+    "label_map": {
+      "path": "D:\\SYNORA_DATA\\INCLUDE\\_official_metadata\\AI4Bharat_INCLUDE\\label_maps\\label_map_include.json",
+      "sha256": "067a8a51369a31c19f7441844d5064ed57f2f47bf4155beda8fcceeec1d8df9a",
+      "used": true
+    },
+    "train_script": {
+      "path": "C:\\Users\\thanu\\synora\\ml\\src\\train_baselines_v1.py",
+      "sha256": "29b843922ea13ebc08ede378bb3d5283569c351946f010f145c0d3e7c18d543d",
+      "used": true
+    }
+  },
+  "input_hashes_stable_during_run": true
+}

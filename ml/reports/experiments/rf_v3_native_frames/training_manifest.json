@@ -1,0 +1,51 @@
+{
+  "experiment_id": "synora_rf_v3_native_frames_20261123",
+  "created_utc": "2026-11-22T13:47:21.106674+00:00",
+  "test_split_read": false,
+  "selection_uses_test": false,
+  "calibration_uses_test": false,
+  "final_model_training_samples": 333,
+  "final_epochs": 47,
+  "python": "3.14.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "input_hashes": {
+    "v2_features/mlp_tensor.npy": "ea91607acd760b9e0589cfd0c35da88015229beb9a19967ee153c73c8e074bc8",
+    "v2_features/mlp_preprocessing.npz": "7adfb2c39de336b273714cf813047b22a9d8ea211665026a101816f5c5a5d9dc",
+    "v2_features/mlp_channel_names.json": "c09f4afa25e4b4ff50bff0c54b7a1c6c2d6f28e0b361c8670894f3e03df79d8c",
+    "v2_features/video_manifest.csv": "266cedd58057d0ca146a4ebbe86e4016f2a82b9aebdf43adcb109e5f8b3705b1",
+    "v4_features/base_tensor.npy": "769786b44a57eb84ba0636c8300b6edcf51e6d5b9c7d579317716bba23599791",
+    "v4_features/video_manifest.csv": "86fd72b4b87e2a4b18bac2f12bdc7abec75fae013796f9c2152792de5a200482",
+    "v4_extraction/config.json": "cca76be4e1fe369f03fd9ded56948f7ac0fa1d06c598265945314818631d1e37",
+    "v4_extraction/manifest.csv": "4d97e6e0f68bc18cc029f1bab67838c8dd9f8162f68281b245d7194a7d3e8d29",
+    "v1_experiment_config": "128549c095aca9be766c2749ffb49764ebac8e0dc7eb89f7fce5a5cd826f8747",
+    "equivalence.json": "3d1e64f16d24e9266145ea0aae18fe61b66301961aa74d2379b533bef4994e37"
+  },
+  "output_hashes": {
+    "selected/weights.npz": "bc8cac0e7b39feb64fec8511233eea21dbf6249be40875e14f22f0be930ff159",
+    "selected/config.json": "ef297deb3dae5ba659df7eb362760782c85302401f6b2e4252b0df20f93f8618",
+    "calibration.json": "d5ce3d31f62799c1e6ff6ec2ab76dce785556484152e43824238543b37a3db7e",
+    "cv_results.json": "d793974f94f8e63f4f8c66b8dc3dbdb78ed29388992eddf2420249f80642f31c",
+    "training.json": "d7edbffe491a019bc91037e1d6378164ddb755136fd49c7f494eaec83a51c808"
+  },
+  "reproduction_command": [
+    "C:\\Users\\thanu\\synora\\ml\\.venv\\Scripts\\python.exe",
+    "-m",
+    "ml.src.experiments.rf_v3_native_frames.train",
+    "--v2-features-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v2_720p30\\features",
+    "--v2-extraction-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v2_720p30",
+    "--v4-features-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v4_live_alignment\\features",
+    "--v4-extraction-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v4_live_alignment",
+    "--v1-config",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\synora_baseline_v1_20261121\\experiment_config.json",
+    "--data-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v3_native_frames",
+    "--model-root",
+    "C:\\Users\\thanu\\synora\\ml\\models\\experiments\\rf_v3_native_frames",
+    "--report-root",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\experiments\\rf_v3_native_frames"
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "experiment_id": "synora_rf_v4_live_alignment_20261123",
+  "created_utc": "2026-11-22T12:13:11.982476+00:00",
+  "seed": 20261123,
+  "test_split_read": false,
+  "cv_protocol": "StratifiedGroupKFold(video_id) over 333 common train+val samples; inner split for early stopping",
+  "cv_folds": 5,
+  "split_counts": {
+    "train": 293,
+    "val": 40
+  },
+  "candidates": [
+    "v3_regularized_cv",
+    "v4_base_mlp_cv",
+    "v4_enhanced_tcn_cv",
+    "v4_enhanced_attention_cv"
+  ],
+  "selected_variant": "v3_regularized_cv",
+  "selected_kind": "v3",
+  "selected_config": {
+    "architecture": "framewise_shared_mlp_masked_mean_max_pooling_regularized",
+    "input_shape": [
+      346,
+      89,
+      135
+    ],
+    "frame_layers": [
+      135,
+      96,
+      48
+    ],
+    "pooled_features": 96,
+    "head_layers": [
+      96,
+      64,
+      21
+    ],
+    "activation": "relu",
+    "pooling": [
+      "masked_mean",
+      "masked_max"
+    ],
+    "max_epochs": 61,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-08,
+    "weight_decay": 0.0001,
+    "early_stopping_metric": "macro_f1",
+    "early_stopping_mode": "max",
+    "early_stopping_patience": 20,
+    "min_delta": 1e-06,
+    "seed": 20261123,
+    "initialization": "he_normal_frame_layers_he_uniform_head",
+    "input_mask_policy": {
+      "padding": "padded frame vectors zeroed and excluded from pooling",
+      "presence": "left/right coordinate and confidence channels zeroed unless present",
+      "missing": "left_hand_missing/right_hand_missing and no_hand_frame retained as channels",
+      "frame_real": "only frame_real=1 frames contribute to masked mean and max"
+    },
+    "preprocessing": {
+      "source": "existing mlp_preprocessing.npz",
+      "fit_splits": [
+        "train"
+      ],
+      "refit": false,
+      "scaled_channels": "observed normalized landmark coordinates only"
+    },
+    "training_input_shape": [
+      346,
+      89,
+      135
+    ],
+    "frame_input_shape": [
+      89,
+      135
+    ],
+    "early_stopping_data": "inner_train_val",
+    "regularization": {
+      "label_smoothing": 0.1,
+      "class_weight_power": 1.0,
+      "class_weight_rule": "inverse_frequency_raised_to_power_normalized_to_mean_one"
+    },
+    "selection_split": "train_val_group_cv",
+    "variant": "v3_regularized_cv",
+    "selection_data": "333 common train+val samples shared with V4"
+  },
+  "final_epochs": 61,
+  "fit_seconds": 745.481,
+  "quality_summary": {
+    "samples": 333,
+    "source_fps": [
+      25.0
+    ],
+    "duplicate_source_frames": 0,
+    "resized_1920x1080_to_1280x720": 333,
+    "tracking_lifecycle": [
+      "reset_at_recording_start"
+    ],
+    "no_hand_frames": 2211,
+    "multiple_hand_frames": 12178,
+    "handedness_mismatch_frames": 0,
+    "source_frame_range": [
+      43,
+      74
+    ]
+  },
+  "parity_passed": true,
+  "input_hashes": {
+    "v2_features/mlp_tensor.npy": "ea91607acd760b9e0589cfd0c35da88015229beb9a19967ee153c73c8e074bc8",
+    "v2_features/mlp_preprocessing.npz": "7adfb2c39de336b273714cf813047b22a9d8ea211665026a101816f5c5a5d9dc",
+    "v2_features/mlp_channel_names.json": "c09f4afa25e4b4ff50bff0c54b7a1c6c2d6f28e0b361c8670894f3e03df79d8c",
+    "v2_features/video_manifest.csv": "266cedd58057d0ca146a4ebbe86e4016f2a82b9aebdf43adcb109e5f8b3705b1",
+    "v4_features/base_tensor.npy": "769786b44a57eb84ba0636c8300b6edcf51e6d5b9c7d579317716bba23599791",
+    "v4_features/enhanced_tensor.npy": "8445ac78494e804ad81a98cfbb756fae984471f44d33e7c30a3321997f893bf9",
+    "v4_features/labels.npy": "1ee8a04b2c65e88818062ee5632e828c6b8d278908565080bc3192b875eb6534",
+    "v4_features/feature_schema.json": "48fbb8f147b70e33e7c20fa05395fdcb20bae589aa0630590cb801549ffcdff2",
+    "v4_features/video_manifest.csv": "86fd72b4b87e2a4b18bac2f12bdc7abec75fae013796f9c2152792de5a200482",
+    "v4_features/feature_build_summary.json": "aee868d02ca23832234a86d7fcce899b11b10f6b7de37d1c2c6c38533bcf543b",
+    "v4_extraction/config.json": "cca76be4e1fe369f03fd9ded56948f7ac0fa1d06c598265945314818631d1e37",
+    "v4_extraction/manifest.csv": "4d97e6e0f68bc18cc029f1bab67838c8dd9f8162f68281b245d7194a7d3e8d29",
+    "v1_experiment_config": "128549c095aca9be766c2749ffb49764ebac8e0dc7eb89f7fce5a5cd826f8747"
+  },
+  "output_hashes": {
+    "selected/weights.npz": "8225eacdca2ed1b4208bad3fce0463b8e8478e0845f68c1ebd21509413dabf61",
+    "selected/config.json": "9262b3607802bce35e80cc0e956dd05b66fa11ca61ec2c179781840280691b55",
+    "calibration.json": "7b4055ac2d4dbfec2228962eb26f9749a80782c53306293cffa8cdde2063518f",
+    "selection.json": "a015cfff6900a4cc0f0d49e10cf5b3950327454f078b31c85d39591dd3f446e2"
+  },
+  "python": "3.14.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "reproduction_command": [
+    "C:\\Users\\thanu\\synora\\ml\\.venv\\Scripts\\python.exe",
+    "-m",
+    "ml.src.experiments.rf_v4_live_alignment.train_cv",
+    "--v2-features-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v2_720p30\\features",
+    "--v2-extraction-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v2_720p30",
+    "--v4-features-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v4_live_alignment\\features",
+    "--v4-extraction-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v4_live_alignment",
+    "--model-root",
+    "C:\\Users\\thanu\\synora\\ml\\models\\experiments\\rf_v4_live_alignment",
+    "--report-root",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\experiments\\rf_v4_live_alignment",
+    "--v1-config",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\synora_baseline_v1_20261121\\experiment_config.json"
+  ]
+}

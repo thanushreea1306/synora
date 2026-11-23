@@ -1,0 +1,21 @@
+{
+  "reproduced": true,
+  "saved_validation_predictions_compared": 42,
+  "prediction_mismatches": 0,
+  "saved_validation_metrics": {
+    "macro_f1": 0.8523809523809525,
+    "accuracy": 0.8571428571428571,
+    "balanced_accuracy": 0.8571428571428571
+  },
+  "reproduced_validation_metrics": {
+    "macro_f1": 0.8523809523809525,
+    "accuracy": 0.8571428571428571,
+    "balanced_accuracy": 0.8571428571428571
+  },
+  "metric_deltas": {
+    "macro_f1": 0.0,
+    "accuracy": 0.0,
+    "balanced_accuracy": 0.0
+  },
+  "saved_model_val_predictions_match_saved_csv": true
+}

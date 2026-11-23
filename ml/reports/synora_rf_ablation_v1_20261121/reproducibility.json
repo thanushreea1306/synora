@@ -1,0 +1,83 @@
+{
+  "experiment_id": "synora_rf_ablation_v1_20261121",
+  "created_utc": "2026-11-21T13:25:47.461410+00:00",
+  "python_executable": "C:\\Users\\thanu\\synora\\ml\\.venv\\Scripts\\python.exe",
+  "python_version": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "package_versions": {
+    "numpy": "2.5.5",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "pandas": "3.1.1",
+    "matplotlib": "3.11.2"
+  },
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "seed": 20261121,
+  "rf_params": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": null,
+    "criterion": "gini",
+    "max_depth": null,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 1,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 300,
+    "n_jobs": 1,
+    "oob_score": false,
+    "random_state": 20261121,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "reproduction_command": [
+    "C:\\Users\\thanu\\synora\\ml\\.venv\\Scripts\\python.exe",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\synora_rf_ablation_v1_20261121\\synora_rf_ablation.py"
+  ],
+  "data_policy": {
+    "splits_used": [
+      "train",
+      "val"
+    ],
+    "test_used_for_fitting": false,
+    "test_used_for_selection": false,
+    "test_used_for_metrics": false,
+    "test_predictions_or_metrics_inspected": false,
+    "note": "Test rows were excluded from all fitted arrays and validation outputs; no test predictions or metrics were read or used."
+  },
+  "input_integrity": {
+    "rf_feature_schema.json": {
+      "sha256": "dc68d8b4d3f1096d41c83ad2b0a4db7b04432b35fbd68e7d85e1e6aeeb17db63"
+    },
+    "experiment_config.json": {
+      "sha256": "128549c095aca9be766c2749ffb49764ebac8e0dc7eb89f7fce5a5cd826f8747"
+    },
+    "validation_metrics.json": {
+      "sha256": "0766592fe52096d829a1e5efd8539cad1f7815e4711c8e4e220e324fe71a8351"
+    },
+    "random_forest.joblib": {
+      "sha256": "cdfb6673a6499f999c263c8503e2ae1d48ff888165d1bfa478db73c44bab65c5"
+    },
+    "video_manifest.csv_train_val_rows_only": {
+      "sha256": "81df03fc9e0e845d91641ac2d1b9ded9f444715ade019662609ca68dc2f2e500",
+      "rows": 359
+    },
+    "predictions.csv_random_forest_val_rows_only": {
+      "sha256": "5de8f16e0b8f65d53e94bf65a9b0686506ea67ee68d65353371a149d56e695e7",
+      "rows": 42
+    },
+    "rf_features.npy_train_val_rows_only": {
+      "sha256": "496206ce828c8a597715af59c9d04556b3532b197d7465cf5a446c2c99c5176d",
+      "rows": 359
+    }
+  }
+}

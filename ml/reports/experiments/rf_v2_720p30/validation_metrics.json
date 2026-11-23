@@ -1,0 +1,17 @@
+{
+  "frozen_v1_rf_on_v2_val": {
+    "macro_f1": 0.8380952380952381,
+    "accuracy": 0.8536585365853658,
+    "balanced_accuracy": 0.8571428571428571
+  },
+  "rf_v2": {
+    "macro_f1": 0.8857142857142858,
+    "accuracy": 0.9024390243902439,
+    "balanced_accuracy": 0.9047619047619048
+  },
+  "temporal_mlp_v2": {
+    "macro_f1": 0.9238095238095239,
+    "accuracy": 0.926829268292683,
+    "balanced_accuracy": 0.9285714285714286
+  }
+}

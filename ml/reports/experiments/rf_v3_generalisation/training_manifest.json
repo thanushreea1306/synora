@@ -1,0 +1,120 @@
+{
+  "experiment_id": "synora_rf_v3_generalisation_20261122",
+  "created_utc": "2026-11-22T08:35:34.392713+00:00",
+  "seed": 20261122,
+  "test_split_read": false,
+  "cv_protocol": "StratifiedGroupKFold(video_id) over train+val only",
+  "cv_folds": 5,
+  "split_counts": {
+    "train": 305,
+    "val": 41,
+    "cv_total": 346
+  },
+  "candidates": [
+    "v2_baseline_cv",
+    "regularized_cv",
+    "strong_regularized_cv"
+  ],
+  "selected_variant": "strong_regularized_cv",
+  "selected_config": {
+    "architecture": "framewise_shared_mlp_masked_mean_max_pooling_regularized",
+    "input_shape": [
+      346,
+      89,
+      135
+    ],
+    "frame_layers": [
+      135,
+      96,
+      48
+    ],
+    "pooled_features": 96,
+    "head_layers": [
+      96,
+      64,
+      21
+    ],
+    "activation": "relu",
+    "pooling": [
+      "masked_mean",
+      "masked_max"
+    ],
+    "max_epochs": 120,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-08,
+    "weight_decay": 0.0001,
+    "early_stopping_metric": "macro_f1",
+    "early_stopping_mode": "max",
+    "early_stopping_patience": 20,
+    "min_delta": 1e-06,
+    "seed": 20261121,
+    "initialization": "he_normal_frame_layers_he_uniform_head",
+    "input_mask_policy": {
+      "padding": "padded frame vectors zeroed and excluded from pooling",
+      "presence": "left/right coordinate and confidence channels zeroed unless present",
+      "missing": "left_hand_missing/right_hand_missing and no_hand_frame retained as channels",
+      "frame_real": "only frame_real=1 frames contribute to masked mean and max"
+    },
+    "preprocessing": {
+      "source": "existing mlp_preprocessing.npz",
+      "fit_splits": [
+        "train"
+      ],
+      "refit": false,
+      "scaled_channels": "observed normalized landmark coordinates only"
+    },
+    "training_input_shape": [
+      346,
+      89,
+      135
+    ],
+    "frame_input_shape": [
+      89,
+      135
+    ],
+    "early_stopping_data": "inner_train_val",
+    "regularization": {
+      "label_smoothing": 0.1,
+      "class_weight_power": 1.0,
+      "class_weight_rule": "inverse_frequency_raised_to_power_normalized_to_mean_one"
+    },
+    "selection_split": "train_val_group_cv",
+    "variant": "strong_regularized_cv"
+  },
+  "final_epochs": 55,
+  "fit_seconds": 295.978,
+  "input_hashes": {
+    "features/rf_features.npy": "4ff4359e7ba61ef03c6e53bea100f4a8e26d2099e0bc7865f7841f82da22bc42",
+    "features/labels.npy": "9dbc86b19fd8423b7c39c69dd4775f859721ccbda7722ac11db7f64fe099f15c",
+    "features/mlp_tensor.npy": "ea91607acd760b9e0589cfd0c35da88015229beb9a19967ee153c73c8e074bc8",
+    "features/mlp_preprocessing.npz": "7adfb2c39de336b273714cf813047b22a9d8ea211665026a101816f5c5a5d9dc",
+    "features/rf_feature_schema.json": "28ef53e30387dc46c289e2cd0efcf45ca796c2878e74a2a6ad4cdc82e7ba22b4",
+    "features/video_manifest.csv": "266cedd58057d0ca146a4ebbe86e4016f2a82b9aebdf43adcb109e5f8b3705b1",
+    "extraction/config.json": "5311605f75f317f84f4ec2e7f165f11ae90f52f8fcd72d2bfc1d412a927bbc26",
+    "v1_experiment_config": "128549c095aca9be766c2749ffb49764ebac8e0dc7eb89f7fce5a5cd826f8747"
+  },
+  "output_hashes": {
+    "temporal_mlp/weights.npz": "54462096c56d1a613ad7bdf25a182a0f31ec2648096ce60e1d17d44f7b7474c1",
+    "temporal_mlp/config.json": "c1da6237acf20105d31b87e28d3c1a94272515235b7fc1c6e1275294ec388a4c",
+    "calibration.json": "3d5bd572e6e9bd39bad88679eab1fbd8a8234829ae72f1c15d0d9edb2cd831d9",
+    "selection.json": "5b9a272f8065c0e3cb360f9d2a815c5f5f3fdbf3a7bad951221dacd1e55b04d5"
+  },
+  "python": "3.14.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "reproduction_command": [
+    "C:\\Users\\thanu\\synora\\ml\\.venv\\Scripts\\python.exe",
+    "-m",
+    "ml.src.experiments.rf_v3_generalisation.cv",
+    "--features-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v2_720p30\\features",
+    "--extraction-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v2_720p30",
+    "--model-root",
+    "C:\\Users\\thanu\\synora\\ml\\models\\experiments\\rf_v3_generalisation",
+    "--report-root",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\experiments\\rf_v3_generalisation"
+  ]
+}

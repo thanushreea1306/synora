@@ -1,0 +1,21 @@
+{
+  "metrics": {
+    "random_forest": {
+      "macro_f1": 0.8187074829931973,
+      "accuracy": 0.8214285714285714,
+      "balanced_accuracy": 0.8214285714285714
+    },
+    "temporal_mlp": {
+      "macro_f1": 0.7984126984126984,
+      "accuracy": 0.8095238095238095,
+      "balanced_accuracy": 0.8095238095238095
+    },
+    "dummy": {
+      "macro_f1": 0.004329004329004329,
+      "accuracy": 0.047619047619047616,
+      "balanced_accuracy": 0.047619047619047616
+    }
+  },
+  "evaluation_policy": "final one-time test evaluation after configs frozen",
+  "selected_by_validation": "random_forest"
+}

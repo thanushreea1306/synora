@@ -1,0 +1,30 @@
+{
+  "validation_report_passed": true,
+  "row_count": 443,
+  "class_count": 21,
+  "train_val_video_overlap": 0,
+  "train_test_video_overlap": 0,
+  "val_test_video_overlap": 0,
+  "official_path_cross_split_overlap": 0,
+  "rf_shape": [
+    443,
+    831
+  ],
+  "rf_csv_matches_npy": true,
+  "rf_non_finite_values": 0,
+  "mlp_tensor_shape": [
+    443,
+    89,
+    135
+  ],
+  "mlp_flat_shape": [
+    443,
+    12015
+  ],
+  "mlp_flat_is_tensor_reshape": true,
+  "mlp_non_finite_values": 0,
+  "mlp_mask_invariants_passed": true,
+  "mlp_frame_counts_match_manifest": true,
+  "input_hashes_match_config": true,
+  "duplicate_handedness_limitation_recorded": true
+}

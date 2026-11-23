@@ -1,0 +1,6 @@
+group,n_features,total_importance,mean_importance,share_percent
+hand_landmark_geometry,802,0.97540982,0.00121622,97.54098165
+hand_detection_confidence,10,0.01340603,0.00134060,1.34060311
+quality_presence_padding,13,0.00963886,0.00074145,0.96388550
+video_metadata,5,0.00117004,0.00023401,0.11700445
+duplicate_handedness_indicator,1,0.00037525,0.00037525,0.03752529

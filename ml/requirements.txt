@@ -1,3 +1,6 @@
 mediapipe==1.2.3
 numpy==2.5.5
 opencv-python==5.1.0.95
+scikit-learn==1.9.1
+joblib==1.6.0
+matplotlib==3.11.2

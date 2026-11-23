@@ -1,0 +1,56 @@
+{
+  "experiment_id": "synora_rf_v4_live_alignment_20261123",
+  "selection_metric": "oof_macro_f1_minus_worst_class_regression_penalty_minus_ece",
+  "selection_data": "333 common train+val samples shared by V3/V4; no test split",
+  "groups": "video_id; signer identity unavailable",
+  "selected_variant": "v3_regularized_cv",
+  "selected_kind": "v3",
+  "selected_metrics": {
+    "macro_f1": 0.8860844350725103,
+    "accuracy": 0.8858858858858859,
+    "balanced_accuracy": 0.8848029382693248
+  },
+  "v3_common_cv_metrics": {
+    "macro_f1": 0.8860844350725103,
+    "accuracy": 0.8858858858858859,
+    "balanced_accuracy": 0.8848029382693248
+  },
+  "selection_scores": {
+    "v3_regularized_cv": {
+      "score": 0.8858623065019856,
+      "macro_f1": 0.8860844350725103,
+      "worst_class_f1": 0.75,
+      "baseline_worst_class_f1": 0.75,
+      "worst_class_regression": 0.0,
+      "ece_after": 0.02221285705246731
+    },
+    "v4_base_mlp_cv": {
+      "score": 0.5918010664900095,
+      "macro_f1": 0.8282541631337601,
+      "worst_class_f1": 0.5925925925925926,
+      "baseline_worst_class_f1": 0.75,
+      "worst_class_regression": 0.15740740740740744,
+      "ece_after": 0.03419855326394152
+    },
+    "v4_enhanced_tcn_cv": {
+      "score": 0.13826428334601462,
+      "macro_f1": 0.6866994993835176,
+      "worst_class_f1": 0.38461538461538464,
+      "baseline_worst_class_f1": 0.75,
+      "worst_class_regression": 0.36538461538461536,
+      "ece_after": 0.03582929605799722
+    },
+    "v4_enhanced_attention_cv": {
+      "score": -0.06674912697990652,
+      "macro_f1": 0.6143180066591647,
+      "worst_class_f1": 0.2962962962962963,
+      "baseline_worst_class_f1": 0.75,
+      "worst_class_regression": 0.4537037037037037,
+      "ece_after": 0.05115780835156362
+    }
+  },
+  "selection_uses_test": false,
+  "final_training_samples": 333,
+  "final_epochs": 61,
+  "final_parameter_count": 25285
+}

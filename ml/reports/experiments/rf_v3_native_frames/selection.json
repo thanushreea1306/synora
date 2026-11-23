@@ -1,0 +1,25 @@
+{
+  "experiment_id": "synora_rf_v3_native_frames_20261123",
+  "variant": "v3_native_frames_cv",
+  "selection_metric": "out_of_fold_macro_f1",
+  "selection_data": "333 common train+val samples shared with V4; no test split",
+  "selection_uses_test": false,
+  "calibration_data": "out_of_fold_train_val_predictions",
+  "calibration_uses_test": false,
+  "metrics": {
+    "macro_f1": 0.8902215925378172,
+    "accuracy": 0.8888888888888888,
+    "balanced_accuracy": 0.8873414322994156
+  },
+  "calibration": {
+    "temperature": 0.5341285200582638,
+    "threshold": 0.56,
+    "coverage": 0.9009009009009009,
+    "accepted_accuracy": 0.9333333333333333,
+    "nll_before": 0.5903906292975309,
+    "nll_after": 0.40117106023421517,
+    "ece_before": 0.21455845162764392,
+    "ece_after": 0.02744973889877232
+  },
+  "final_epochs": 47
+}

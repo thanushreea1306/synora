@@ -1,0 +1,22 @@
+{
+  "metrics": {
+    "random_forest": {
+      "macro_f1": 0.8523809523809525,
+      "accuracy": 0.8571428571428571,
+      "balanced_accuracy": 0.8571428571428571
+    },
+    "temporal_mlp": {
+      "macro_f1": 0.8285714285714285,
+      "accuracy": 0.8333333333333334,
+      "balanced_accuracy": 0.8333333333333334
+    },
+    "dummy": {
+      "macro_f1": 0.004329004329004329,
+      "accuracy": 0.047619047619047616,
+      "balanced_accuracy": 0.047619047619047616
+    }
+  },
+  "selection_metric": "macro_f1",
+  "selected_by_validation": "random_forest",
+  "selection_uses_test": false
+}

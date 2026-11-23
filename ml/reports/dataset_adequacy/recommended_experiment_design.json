@@ -1,0 +1,264 @@
+{
+  "schema_version": "synora_recommended_experiment_design_v1",
+  "created_on": "2026-11-20",
+  "decision": {
+    "primary_benchmark": "synora_include21_well_supported",
+    "retain_30_class_as_primary": false,
+    "retain_30_class_as_exploratory": true,
+    "collect_additional_before_30_class_primary": true,
+    "rationale": [
+      "The 30-class dataset is structurally valid but has 9 under-supported classes and material class imbalance.",
+      "The 21-class well-supported subset has 15-16 train, 2 val, and 4 test videos per class.",
+      "No unused local genuine videos exist for the 9 under-supported classes.",
+      "Signer identity is not available in the official or local metadata; signer-independent evaluation cannot be claimed."
+    ]
+  },
+  "current_dataset": {
+    "processed_output_root": "C:/Users/thanu/synora/ml/dataset/processed/synora_include30_landmarks_v1",
+    "dataset_root": "D:/SYNORA_DATA/INCLUDE",
+    "classes": 30,
+    "videos": {
+      "train": 381,
+      "val": 51,
+      "test": 96,
+      "total": 528
+    },
+    "frames": {
+      "train": 22004,
+      "val": 3012,
+      "test": 5429,
+      "total": 30445
+    },
+    "quality_audit": {
+      "passed": 32,
+      "failed": 0,
+      "issues": 0,
+      "warnings": 4,
+      "ready_for_balanced_per_class_training": false
+    },
+    "imbalance": {
+      "train_video_ratio_max_over_min": 2.6666666666666665,
+      "val_video_ratio_max_over_min": 2.0,
+      "test_video_ratio_max_over_min": 4.0,
+      "threshold": 2.0
+    }
+  },
+  "primary_design": {
+    "name": "synora_include21_well_supported",
+    "class_count": 21,
+    "classes": [
+      "1. loud",
+      "2. quiet",
+      "3. happy",
+      "78. long",
+      "79. short",
+      "80. tall",
+      "81. wide",
+      "82. narrow",
+      "83. big large",
+      "84. small little",
+      "85. slow",
+      "86. fast",
+      "87. hot",
+      "89. warm",
+      "90. cool",
+      "91. new",
+      "92. old",
+      "93. young",
+      "94. good",
+      "95. bad",
+      "96. wet"
+    ],
+    "videos": {
+      "train": 317,
+      "val": 42,
+      "test": 84,
+      "total": 443
+    },
+    "frames": {
+      "train": 17880,
+      "val": 2409,
+      "test": 4695,
+      "total": 24984
+    },
+    "split_policy": {
+      "use_official_split_assignments": true,
+      "resplit": false,
+      "duplicate_or_synthesize": false,
+      "augmentation_as_sample_replacement": false
+    },
+    "reporting": {
+      "primary_metrics": [
+        "macro_f1",
+        "per_class_f1",
+        "confusion_matrix"
+      ],
+      "required_caveats": [
+        "isolated-sign recognition",
+        "official INCLUDE split",
+        "signer identity unverified",
+        "not signer-independent",
+        "small per-class val and test support"
+      ]
+    }
+  },
+  "exploratory_design": {
+    "name": "synora_include30_expansion",
+    "class_count": 30,
+    "status": "exploratory_only_until_supplemented",
+    "weak_classes": [
+      "4. sad",
+      "5. Beautiful",
+      "17. flat",
+      "18. curved",
+      "21. tight",
+      "22. loose",
+      "29. clean",
+      "30. dirty",
+      "88. cold"
+    ],
+    "weak_class_counts": {
+      "train": 64,
+      "val": 9,
+      "test": 12
+    },
+    "reporting_requirement": "Report per-class support and flag the 9 weak classes when presenting any 30-class metrics."
+  },
+  "supplementation": {
+    "unused_local_official_videos_for_weak_classes": {
+      "train": 0,
+      "val": 0,
+      "test": 0
+    },
+    "conclusion": "No re-selection from local source videos can close the weak-class gaps; new genuine recordings are required.",
+    "targets": {
+      "parity": {
+        "description": "Match the current well-supported class pattern.",
+        "train": 15,
+        "val": 2,
+        "test": 4,
+        "new_videos_required": 104
+      },
+      "recommended_credible": {
+        "description": "Increase val/test support beyond single-sample fragility while keeping train support comparable.",
+        "train": 15,
+        "val": 3,
+        "test": 5,
+        "new_videos_required": 122
+      }
+    },
+    "totals_after_supplementation": {
+      "parity": {
+        "train": 485,
+        "val": 60,
+        "test": 120,
+        "total": 665
+      },
+      "recommended_credible": {
+        "train": 485,
+        "val": 69,
+        "test": 129,
+        "total": 683
+      }
+    },
+    "class_requirements": [
+      {
+        "class_folder": "4. sad",
+        "current": {"train": 6, "val": 1, "test": 1},
+        "parity_add": {"train": 9, "val": 1, "test": 3, "total": 13},
+        "credible_add": {"train": 9, "val": 2, "test": 4, "total": 15}
+      },
+      {
+        "class_folder": "5. Beautiful",
+        "current": {"train": 7, "val": 1, "test": 1},
+        "parity_add": {"train": 8, "val": 1, "test": 3, "total": 12},
+        "credible_add": {"train": 8, "val": 2, "test": 4, "total": 14}
+      },
+      {
+        "class_folder": "17. flat",
+        "current": {"train": 6, "val": 1, "test": 1},
+        "parity_add": {"train": 9, "val": 1, "test": 3, "total": 13},
+        "credible_add": {"train": 9, "val": 2, "test": 4, "total": 15}
+      },
+      {
+        "class_folder": "18. curved",
+        "current": {"train": 6, "val": 1, "test": 1},
+        "parity_add": {"train": 9, "val": 1, "test": 3, "total": 13},
+        "credible_add": {"train": 9, "val": 2, "test": 4, "total": 15}
+      },
+      {
+        "class_folder": "21. tight",
+        "current": {"train": 6, "val": 1, "test": 1},
+        "parity_add": {"train": 9, "val": 1, "test": 3, "total": 13},
+        "credible_add": {"train": 9, "val": 2, "test": 4, "total": 15}
+      },
+      {
+        "class_folder": "22. loose",
+        "current": {"train": 6, "val": 1, "test": 1},
+        "parity_add": {"train": 9, "val": 1, "test": 3, "total": 13},
+        "credible_add": {"train": 9, "val": 2, "test": 4, "total": 15}
+      },
+      {
+        "class_folder": "29. clean",
+        "current": {"train": 6, "val": 1, "test": 1},
+        "parity_add": {"train": 9, "val": 1, "test": 3, "total": 13},
+        "credible_add": {"train": 9, "val": 2, "test": 4, "total": 15}
+      },
+      {
+        "class_folder": "30. dirty",
+        "current": {"train": 6, "val": 1, "test": 1},
+        "parity_add": {"train": 9, "val": 1, "test": 3, "total": 13},
+        "credible_add": {"train": 9, "val": 2, "test": 4, "total": 15}
+      },
+      {
+        "class_folder": "88. cold",
+        "current": {"train": 15, "val": 1, "test": 4},
+        "parity_add": {"train": 0, "val": 1, "test": 0, "total": 1},
+        "credible_add": {"train": 0, "val": 2, "test": 1, "total": 3}
+      }
+    ],
+    "collection_constraints": [
+      "Record or obtain genuinely new videos only.",
+      "Do not duplicate, synthesize, or count augmentation as additional samples.",
+      "Do not change existing official split assignments or existing extracted landmarks.",
+      "Document source, license, labels, signer IDs, session IDs, and consent status for new videos.",
+      "If signer IDs are known, split by signer before balancing classes.",
+      "Keep source videos outside the Git repository."
+    ]
+  },
+  "identity_and_ethics": {
+    "per_video_signer_ids_found": false,
+    "session_ids_found": false,
+    "consent_fields_found": false,
+    "demographic_fields_found": false,
+    "signer_independent_evaluation_claim_allowed": false,
+    "notes": [
+      "Official metadata describes videos as signed by deaf students from St. Louis School for the Deaf, Adyar, Chennai.",
+      "Hugging Face dataset card warns that videos represent real people and requests privacy-respecting use.",
+      "Do not infer signer identity from MVI_* filenames."
+    ]
+  },
+  "licensing": {
+    "dataset_license": "CC BY 4.0",
+    "dataset_license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "zenodo_access_right": "open",
+    "github_mit_license_scope": "software only",
+    "attribution_required": true
+  },
+  "source_evidence": [
+    "C:/Users/thanu/synora/ml/dataset/processed/synora_include30_landmarks_v1/config.json",
+    "C:/Users/thanu/synora/ml/reports/dataset_quality_audit/dataset_quality_report.json",
+    "C:/Users/thanu/synora/ml/reports/dataset_quality_audit/class_distribution.csv",
+    "D:/SYNORA_DATA/INCLUDE/_official_metadata/download_manifest.tsv",
+    "D:/SYNORA_DATA/INCLUDE/_official_metadata/Zenodo_4010759/zenodo_record_4010759.json",
+    "D:/SYNORA_DATA/INCLUDE/_official_metadata/Zenodo_4010759/LICENSE_NOTICE.txt",
+    "https://zenodo.org/api/records/4010759",
+    "https://huggingface.co/datasets/ai4bharat/INCLUDE",
+    "https://dl.acm.org/doi/10.1145/3394171.3413528"
+  ],
+  "output_files": [
+    "C:/Users/thanu/synora/ml/reports/dataset_adequacy/dataset_adequacy_report.md",
+    "C:/Users/thanu/synora/ml/reports/dataset_adequacy/additional_data_inventory.csv",
+    "C:/Users/thanu/synora/ml/reports/dataset_adequacy/recommended_experiment_design.json"
+  ]
+}

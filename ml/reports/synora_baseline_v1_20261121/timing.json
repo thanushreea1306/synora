@@ -1,0 +1,42 @@
+{
+  "fit_seconds": {
+    "random_forest": 4.07253780006431,
+    "dummy": 0.00237210001796484,
+    "temporal_mlp": 15.97160409996286
+  },
+  "inference_latency": [
+    {
+      "model": "random_forest",
+      "split": "test",
+      "batch_size": 84,
+      "repeats": 5,
+      "mean_batch_seconds": 0.06107011998537928,
+      "std_batch_seconds": 0.007987418518702421,
+      "mean_ms_per_video": 0.7270252379211819,
+      "prepared_for_temporal_mlp": false
+    },
+    {
+      "model": "dummy",
+      "split": "test",
+      "batch_size": 84,
+      "repeats": 5,
+      "mean_batch_seconds": 0.0005352400010451674,
+      "std_batch_seconds": 7.591235883853463e-05,
+      "mean_ms_per_video": 0.006371904774347232,
+      "prepared_for_temporal_mlp": false
+    },
+    {
+      "model": "temporal_mlp",
+      "split": "test",
+      "batch_size": 84,
+      "repeats": 5,
+      "mean_batch_seconds": 0.021406899997964503,
+      "std_batch_seconds": 0.0009518364697358873,
+      "mean_ms_per_video": 0.2548440475948155,
+      "prepared_for_temporal_mlp": true
+    }
+  ],
+  "mlp_best_epoch": 29,
+  "mlp_epochs_completed": 49,
+  "mlp_stopped_early": true
+}

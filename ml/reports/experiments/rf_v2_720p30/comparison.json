@@ -1,0 +1,41 @@
+{
+  "frozen_v1_on_original_v1_val": {
+    "random_forest": {
+      "macro_f1": 0.8523809523809525,
+      "accuracy": 0.8571428571428571,
+      "balanced_accuracy": 0.8571428571428571
+    },
+    "temporal_mlp": {
+      "macro_f1": 0.8285714285714285,
+      "accuracy": 0.8333333333333334,
+      "balanced_accuracy": 0.8333333333333334
+    },
+    "dummy": {
+      "macro_f1": 0.004329004329004329,
+      "accuracy": 0.047619047619047616,
+      "balanced_accuracy": 0.047619047619047616
+    }
+  },
+  "frozen_v1_on_v2_val": {
+    "macro_f1": 0.8380952380952381,
+    "accuracy": 0.8536585365853658,
+    "balanced_accuracy": 0.8571428571428571
+  },
+  "v2_models": {
+    "rf_v2": {
+      "macro_f1": 0.8857142857142858,
+      "accuracy": 0.9024390243902439,
+      "balanced_accuracy": 0.9047619047619048
+    },
+    "temporal_mlp_v2": {
+      "macro_f1": 0.9238095238095239,
+      "accuracy": 0.926829268292683,
+      "balanced_accuracy": 0.9285714285714286
+    }
+  },
+  "notes": [
+    "v1 artifacts and test split were not modified or used.",
+    "The 13 over-cap clips were excluded before v2 feature building and recorded in excluded.jsonl.",
+    "All v2 model selection and confidence calibration used validation only."
+  ]
+}

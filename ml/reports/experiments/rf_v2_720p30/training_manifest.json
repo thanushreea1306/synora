@@ -1,0 +1,132 @@
+{
+  "experiment_id": "synora_rf_v2_720p30_20261122",
+  "created_utc": "2026-11-22T06:19:39.942291+00:00",
+  "seed": 20261121,
+  "test_split_read": false,
+  "selection_split": "val",
+  "split_counts": {
+    "train": 305,
+    "val": 41
+  },
+  "rf_config": {
+    "estimator": "sklearn.ensemble.RandomForestClassifier",
+    "n_estimators": 300,
+    "criterion": "gini",
+    "max_depth": null,
+    "min_samples_split": 2,
+    "min_samples_leaf": 1,
+    "min_weight_fraction_leaf": 0.0,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "min_impurity_decrease": 0.0,
+    "bootstrap": true,
+    "oob_score": false,
+    "class_weight": null,
+    "n_jobs": 1,
+    "random_state": 20261121,
+    "verbose": 0,
+    "warm_start": false,
+    "ccp_alpha": 0.0,
+    "scaling": "none"
+  },
+  "mlp_config": {
+    "architecture": "framewise_shared_mlp_masked_mean_max_pooling",
+    "input_shape": [
+      305,
+      89,
+      135
+    ],
+    "frame_layers": [
+      135,
+      96,
+      48
+    ],
+    "pooled_features": 96,
+    "head_layers": [
+      96,
+      64,
+      21
+    ],
+    "activation": "relu",
+    "pooling": [
+      "masked_mean",
+      "masked_max"
+    ],
+    "max_epochs": 120,
+    "batch_size": 32,
+    "learning_rate": 0.001,
+    "beta1": 0.9,
+    "beta2": 0.999,
+    "epsilon": 1e-08,
+    "weight_decay": 0.0001,
+    "early_stopping_metric": "macro_f1",
+    "early_stopping_mode": "max",
+    "early_stopping_patience": 20,
+    "min_delta": 1e-06,
+    "seed": 20261121,
+    "initialization": "he_normal_frame_layers_he_uniform_head",
+    "input_mask_policy": {
+      "padding": "padded frame vectors zeroed and excluded from pooling",
+      "presence": "left/right coordinate and confidence channels zeroed unless present",
+      "missing": "left_hand_missing/right_hand_missing and no_hand_frame retained as channels",
+      "frame_real": "only frame_real=1 frames contribute to masked mean and max"
+    },
+    "preprocessing": {
+      "source": "v2 mlp_preprocessing.npz",
+      "fit_splits": [
+        "train"
+      ],
+      "refit": true,
+      "scaled_channels": "observed normalized landmark coordinates only"
+    },
+    "training_input_shape": [
+      305,
+      89,
+      135
+    ],
+    "frame_input_shape": [
+      89,
+      135
+    ],
+    "early_stopping_data": "val"
+  },
+  "fit_seconds": {
+    "rf_v2": 2.1441051000729203,
+    "temporal_mlp_v2": 6.980172599898651
+  },
+  "input_hashes": {
+    "features/rf_features.npy": "4ff4359e7ba61ef03c6e53bea100f4a8e26d2099e0bc7865f7841f82da22bc42",
+    "features/labels.npy": "9dbc86b19fd8423b7c39c69dd4775f859721ccbda7722ac11db7f64fe099f15c",
+    "features/mlp_tensor.npy": "ea91607acd760b9e0589cfd0c35da88015229beb9a19967ee153c73c8e074bc8",
+    "features/mlp_preprocessing.npz": "7adfb2c39de336b273714cf813047b22a9d8ea211665026a101816f5c5a5d9dc",
+    "features/rf_feature_schema.json": "28ef53e30387dc46c289e2cd0efcf45ca796c2878e74a2a6ad4cdc82e7ba22b4",
+    "features/video_manifest.csv": "266cedd58057d0ca146a4ebbe86e4016f2a82b9aebdf43adcb109e5f8b3705b1",
+    "extraction/config.json": "5311605f75f317f84f4ec2e7f165f11ae90f52f8fcd72d2bfc1d412a927bbc26",
+    "v1_rf_model": "cdfb6673a6499f999c263c8503e2ae1d48ff888165d1bfa478db73c44bab65c5",
+    "v1_experiment_config": "128549c095aca9be766c2749ffb49764ebac8e0dc7eb89f7fce5a5cd826f8747",
+    "v1_validation_metrics": "0766592fe52096d829a1e5efd8539cad1f7815e4711c8e4e220e324fe71a8351"
+  },
+  "output_hashes": {
+    "random_forest/random_forest.joblib": "d3e4fda7fa42d872875f8f129a7d22a06630c62f49a4aef8ee02fbe2193293ed",
+    "random_forest/config.json": "18b7e14524c55d9ce08dcee903be319a4a5b8f602715ebe15b6780b08897ec20",
+    "temporal_mlp/weights.npz": "4232e4eb1a5d0cea2748492833ae39667f25e77ac2cf478092560d579ef27359",
+    "temporal_mlp/config.json": "64c18e01d8012db4283e2e8c7efd4a2ddc83037c641be422f188c34398f32d3e",
+    "temporal_mlp/preprocessing_reference.json": "8606675d6cd13f36456b063acd8a3d828ee0ab739ca6ac1dc4b5b2d068f9e8a9"
+  },
+  "python": "3.14.0",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "numeric_mode": "float32 NumPy linear algebra; deterministic fixed-seed initialization; no dropout",
+  "reproduction_command": [
+    "C:\\Users\\thanu\\synora\\ml\\.venv\\Scripts\\python.exe",
+    "-m",
+    "ml.src.experiments.rf_v2_720p30.train_v2",
+    "--features-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v2_720p30\\features",
+    "--extraction-root",
+    "C:\\Users\\thanu\\synora\\ml\\dataset\\processed\\experiments\\rf_v2_720p30",
+    "--model-root",
+    "C:\\Users\\thanu\\synora\\ml\\models\\experiments\\rf_v2_720p30",
+    "--report-root",
+    "C:\\Users\\thanu\\synora\\ml\\reports\\experiments\\rf_v2_720p30"
+  ]
+}

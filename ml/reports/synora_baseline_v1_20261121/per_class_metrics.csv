@@ -1,0 +1,190 @@
+model,split,model_index,original_label_id,class_label,class_folder,precision,recall,f1_score,support
+random_forest,train,0,127,loud,1. loud,1.0,1.0,1.0,15
+random_forest,train,1,174,quiet,2. quiet,1.0,1.0,1.0,15
+random_forest,train,2,95,happy,3. happy,1.0,1.0,1.0,15
+random_forest,train,3,125,long,78. long,1.0,1.0,1.0,15
+random_forest,train,4,196,short,79. short,1.0,1.0,1.0,16
+random_forest,train,5,217,tall,80. tall,1.0,1.0,1.0,15
+random_forest,train,6,252,wide,81. wide,1.0,1.0,1.0,15
+random_forest,train,7,143,narrow,82. narrow,1.0,1.0,1.0,15
+random_forest,train,8,19,biglarge,83. big large,1.0,1.0,1.0,15
+random_forest,train,9,202,smalllittle,84. small little,1.0,1.0,1.0,16
+random_forest,train,10,201,slow,85. slow,1.0,1.0,1.0,15
+random_forest,train,11,74,fast,86. fast,1.0,1.0,1.0,15
+random_forest,train,12,105,hot,87. hot,1.0,1.0,1.0,15
+random_forest,train,13,245,warm,89. warm,1.0,1.0,1.0,15
+random_forest,train,14,47,cool,90. cool,1.0,1.0,1.0,15
+random_forest,train,15,145,new,91. new,1.0,1.0,1.0,15
+random_forest,train,16,150,old,92. old,1.0,1.0,1.0,15
+random_forest,train,17,261,young,93. young,1.0,1.0,1.0,15
+random_forest,train,18,84,good,94. good,1.0,1.0,1.0,15
+random_forest,train,19,10,bad,95. bad,1.0,1.0,1.0,15
+random_forest,train,20,250,wet,96. wet,1.0,1.0,1.0,15
+random_forest,val,0,127,loud,1. loud,1.0,1.0,1.0,2
+random_forest,val,1,174,quiet,2. quiet,1.0,0.5,0.6666666666666666,2
+random_forest,val,2,95,happy,3. happy,1.0,1.0,1.0,2
+random_forest,val,3,125,long,78. long,1.0,1.0,1.0,2
+random_forest,val,4,196,short,79. short,1.0,0.5,0.6666666666666666,2
+random_forest,val,5,217,tall,80. tall,1.0,1.0,1.0,2
+random_forest,val,6,252,wide,81. wide,0.6666666666666666,1.0,0.8,2
+random_forest,val,7,143,narrow,82. narrow,1.0,0.5,0.6666666666666666,2
+random_forest,val,8,19,biglarge,83. big large,1.0,1.0,1.0,2
+random_forest,val,9,202,smalllittle,84. small little,1.0,1.0,1.0,2
+random_forest,val,10,201,slow,85. slow,0.5,1.0,0.6666666666666666,2
+random_forest,val,11,74,fast,86. fast,1.0,1.0,1.0,2
+random_forest,val,12,105,hot,87. hot,1.0,1.0,1.0,2
+random_forest,val,13,245,warm,89. warm,1.0,0.5,0.6666666666666666,2
+random_forest,val,14,47,cool,90. cool,1.0,1.0,1.0,2
+random_forest,val,15,145,new,91. new,1.0,1.0,1.0,2
+random_forest,val,16,150,old,92. old,0.6666666666666666,1.0,0.8,2
+random_forest,val,17,261,young,93. young,0.5,0.5,0.5,2
+random_forest,val,18,84,good,94. good,1.0,1.0,1.0,2
+random_forest,val,19,10,bad,95. bad,1.0,0.5,0.6666666666666666,2
+random_forest,val,20,250,wet,96. wet,0.6666666666666666,1.0,0.8,2
+random_forest,test,0,127,loud,1. loud,0.75,0.75,0.75,4
+random_forest,test,1,174,quiet,2. quiet,0.8,1.0,0.8888888888888888,4
+random_forest,test,2,95,happy,3. happy,0.6666666666666666,1.0,0.8,4
+random_forest,test,3,125,long,78. long,0.8,1.0,0.8888888888888888,4
+random_forest,test,4,196,short,79. short,1.0,1.0,1.0,4
+random_forest,test,5,217,tall,80. tall,1.0,1.0,1.0,4
+random_forest,test,6,252,wide,81. wide,0.75,0.75,0.75,4
+random_forest,test,7,143,narrow,82. narrow,0.5,0.5,0.5,4
+random_forest,test,8,19,biglarge,83. big large,1.0,0.75,0.8571428571428571,4
+random_forest,test,9,202,smalllittle,84. small little,0.75,0.75,0.75,4
+random_forest,test,10,201,slow,85. slow,0.6,0.75,0.6666666666666666,4
+random_forest,test,11,74,fast,86. fast,1.0,1.0,1.0,4
+random_forest,test,12,105,hot,87. hot,1.0,0.75,0.8571428571428571,4
+random_forest,test,13,245,warm,89. warm,1.0,0.75,0.8571428571428571,4
+random_forest,test,14,47,cool,90. cool,1.0,1.0,1.0,4
+random_forest,test,15,145,new,91. new,1.0,1.0,1.0,4
+random_forest,test,16,150,old,92. old,0.8,1.0,0.8888888888888888,4
+random_forest,test,17,261,young,93. young,1.0,0.5,0.6666666666666666,4
+random_forest,test,18,84,good,94. good,0.75,0.75,0.75,4
+random_forest,test,19,10,bad,95. bad,0.6666666666666666,0.5,0.5714285714285714,4
+random_forest,test,20,250,wet,96. wet,0.75,0.75,0.75,4
+temporal_mlp,train,0,127,loud,1. loud,1.0,1.0,1.0,15
+temporal_mlp,train,1,174,quiet,2. quiet,1.0,1.0,1.0,15
+temporal_mlp,train,2,95,happy,3. happy,1.0,1.0,1.0,15
+temporal_mlp,train,3,125,long,78. long,1.0,1.0,1.0,15
+temporal_mlp,train,4,196,short,79. short,1.0,1.0,1.0,16
+temporal_mlp,train,5,217,tall,80. tall,1.0,1.0,1.0,15
+temporal_mlp,train,6,252,wide,81. wide,1.0,1.0,1.0,15
+temporal_mlp,train,7,143,narrow,82. narrow,1.0,1.0,1.0,15
+temporal_mlp,train,8,19,biglarge,83. big large,1.0,1.0,1.0,15
+temporal_mlp,train,9,202,smalllittle,84. small little,1.0,1.0,1.0,16
+temporal_mlp,train,10,201,slow,85. slow,1.0,1.0,1.0,15
+temporal_mlp,train,11,74,fast,86. fast,1.0,1.0,1.0,15
+temporal_mlp,train,12,105,hot,87. hot,1.0,1.0,1.0,15
+temporal_mlp,train,13,245,warm,89. warm,1.0,1.0,1.0,15
+temporal_mlp,train,14,47,cool,90. cool,1.0,1.0,1.0,15
+temporal_mlp,train,15,145,new,91. new,1.0,1.0,1.0,15
+temporal_mlp,train,16,150,old,92. old,1.0,1.0,1.0,15
+temporal_mlp,train,17,261,young,93. young,1.0,1.0,1.0,15
+temporal_mlp,train,18,84,good,94. good,1.0,1.0,1.0,15
+temporal_mlp,train,19,10,bad,95. bad,1.0,1.0,1.0,15
+temporal_mlp,train,20,250,wet,96. wet,1.0,1.0,1.0,15
+temporal_mlp,val,0,127,loud,1. loud,1.0,1.0,1.0,2
+temporal_mlp,val,1,174,quiet,2. quiet,1.0,1.0,1.0,2
+temporal_mlp,val,2,95,happy,3. happy,1.0,1.0,1.0,2
+temporal_mlp,val,3,125,long,78. long,1.0,0.5,0.6666666666666666,2
+temporal_mlp,val,4,196,short,79. short,0.5,0.5,0.5,2
+temporal_mlp,val,5,217,tall,80. tall,1.0,1.0,1.0,2
+temporal_mlp,val,6,252,wide,81. wide,1.0,0.5,0.6666666666666666,2
+temporal_mlp,val,7,143,narrow,82. narrow,1.0,1.0,1.0,2
+temporal_mlp,val,8,19,biglarge,83. big large,0.6666666666666666,1.0,0.8,2
+temporal_mlp,val,9,202,smalllittle,84. small little,0.5,0.5,0.5,2
+temporal_mlp,val,10,201,slow,85. slow,0.5,1.0,0.6666666666666666,2
+temporal_mlp,val,11,74,fast,86. fast,1.0,1.0,1.0,2
+temporal_mlp,val,12,105,hot,87. hot,0.6666666666666666,1.0,0.8,2
+temporal_mlp,val,13,245,warm,89. warm,1.0,0.5,0.6666666666666666,2
+temporal_mlp,val,14,47,cool,90. cool,1.0,1.0,1.0,2
+temporal_mlp,val,15,145,new,91. new,1.0,1.0,1.0,2
+temporal_mlp,val,16,150,old,92. old,0.6666666666666666,1.0,0.8,2
+temporal_mlp,val,17,261,young,93. young,1.0,0.5,0.6666666666666666,2
+temporal_mlp,val,18,84,good,94. good,1.0,1.0,1.0,2
+temporal_mlp,val,19,10,bad,95. bad,1.0,0.5,0.6666666666666666,2
+temporal_mlp,val,20,250,wet,96. wet,1.0,1.0,1.0,2
+temporal_mlp,test,0,127,loud,1. loud,0.8,1.0,0.8888888888888888,4
+temporal_mlp,test,1,174,quiet,2. quiet,1.0,1.0,1.0,4
+temporal_mlp,test,2,95,happy,3. happy,0.75,0.75,0.75,4
+temporal_mlp,test,3,125,long,78. long,1.0,1.0,1.0,4
+temporal_mlp,test,4,196,short,79. short,0.8,1.0,0.8888888888888888,4
+temporal_mlp,test,5,217,tall,80. tall,1.0,0.75,0.8571428571428571,4
+temporal_mlp,test,6,252,wide,81. wide,0.5,0.25,0.3333333333333333,4
+temporal_mlp,test,7,143,narrow,82. narrow,1.0,1.0,1.0,4
+temporal_mlp,test,8,19,biglarge,83. big large,1.0,0.5,0.6666666666666666,4
+temporal_mlp,test,9,202,smalllittle,84. small little,0.6666666666666666,1.0,0.8,4
+temporal_mlp,test,10,201,slow,85. slow,0.8,1.0,0.8888888888888888,4
+temporal_mlp,test,11,74,fast,86. fast,1.0,1.0,1.0,4
+temporal_mlp,test,12,105,hot,87. hot,0.6666666666666666,1.0,0.8,4
+temporal_mlp,test,13,245,warm,89. warm,0.75,0.75,0.75,4
+temporal_mlp,test,14,47,cool,90. cool,1.0,1.0,1.0,4
+temporal_mlp,test,15,145,new,91. new,1.0,1.0,1.0,4
+temporal_mlp,test,16,150,old,92. old,0.6666666666666666,0.5,0.5714285714285714,4
+temporal_mlp,test,17,261,young,93. young,1.0,0.5,0.6666666666666666,4
+temporal_mlp,test,18,84,good,94. good,0.6,0.75,0.6666666666666666,4
+temporal_mlp,test,19,10,bad,95. bad,0.6666666666666666,0.5,0.5714285714285714,4
+temporal_mlp,test,20,250,wet,96. wet,0.6,0.75,0.6666666666666666,4
+dummy,train,0,127,loud,1. loud,0.0,0.0,0.0,15
+dummy,train,1,174,quiet,2. quiet,0.0,0.0,0.0,15
+dummy,train,2,95,happy,3. happy,0.0,0.0,0.0,15
+dummy,train,3,125,long,78. long,0.0,0.0,0.0,15
+dummy,train,4,196,short,79. short,0.050473186119873815,1.0,0.0960960960960961,16
+dummy,train,5,217,tall,80. tall,0.0,0.0,0.0,15
+dummy,train,6,252,wide,81. wide,0.0,0.0,0.0,15
+dummy,train,7,143,narrow,82. narrow,0.0,0.0,0.0,15
+dummy,train,8,19,biglarge,83. big large,0.0,0.0,0.0,15
+dummy,train,9,202,smalllittle,84. small little,0.0,0.0,0.0,16
+dummy,train,10,201,slow,85. slow,0.0,0.0,0.0,15
+dummy,train,11,74,fast,86. fast,0.0,0.0,0.0,15
+dummy,train,12,105,hot,87. hot,0.0,0.0,0.0,15
+dummy,train,13,245,warm,89. warm,0.0,0.0,0.0,15
+dummy,train,14,47,cool,90. cool,0.0,0.0,0.0,15
+dummy,train,15,145,new,91. new,0.0,0.0,0.0,15
+dummy,train,16,150,old,92. old,0.0,0.0,0.0,15
+dummy,train,17,261,young,93. young,0.0,0.0,0.0,15
+dummy,train,18,84,good,94. good,0.0,0.0,0.0,15
+dummy,train,19,10,bad,95. bad,0.0,0.0,0.0,15
+dummy,train,20,250,wet,96. wet,0.0,0.0,0.0,15
+dummy,val,0,127,loud,1. loud,0.0,0.0,0.0,2
+dummy,val,1,174,quiet,2. quiet,0.0,0.0,0.0,2
+dummy,val,2,95,happy,3. happy,0.0,0.0,0.0,2
+dummy,val,3,125,long,78. long,0.0,0.0,0.0,2
+dummy,val,4,196,short,79. short,0.047619047619047616,1.0,0.09090909090909091,2
+dummy,val,5,217,tall,80. tall,0.0,0.0,0.0,2
+dummy,val,6,252,wide,81. wide,0.0,0.0,0.0,2
+dummy,val,7,143,narrow,82. narrow,0.0,0.0,0.0,2
+dummy,val,8,19,biglarge,83. big large,0.0,0.0,0.0,2
+dummy,val,9,202,smalllittle,84. small little,0.0,0.0,0.0,2
+dummy,val,10,201,slow,85. slow,0.0,0.0,0.0,2
+dummy,val,11,74,fast,86. fast,0.0,0.0,0.0,2
+dummy,val,12,105,hot,87. hot,0.0,0.0,0.0,2
+dummy,val,13,245,warm,89. warm,0.0,0.0,0.0,2
+dummy,val,14,47,cool,90. cool,0.0,0.0,0.0,2
+dummy,val,15,145,new,91. new,0.0,0.0,0.0,2
+dummy,val,16,150,old,92. old,0.0,0.0,0.0,2
+dummy,val,17,261,young,93. young,0.0,0.0,0.0,2
+dummy,val,18,84,good,94. good,0.0,0.0,0.0,2
+dummy,val,19,10,bad,95. bad,0.0,0.0,0.0,2
+dummy,val,20,250,wet,96. wet,0.0,0.0,0.0,2
+dummy,test,0,127,loud,1. loud,0.0,0.0,0.0,4
+dummy,test,1,174,quiet,2. quiet,0.0,0.0,0.0,4
+dummy,test,2,95,happy,3. happy,0.0,0.0,0.0,4
+dummy,test,3,125,long,78. long,0.0,0.0,0.0,4
+dummy,test,4,196,short,79. short,0.047619047619047616,1.0,0.09090909090909091,4
+dummy,test,5,217,tall,80. tall,0.0,0.0,0.0,4
+dummy,test,6,252,wide,81. wide,0.0,0.0,0.0,4
+dummy,test,7,143,narrow,82. narrow,0.0,0.0,0.0,4
+dummy,test,8,19,biglarge,83. big large,0.0,0.0,0.0,4
+dummy,test,9,202,smalllittle,84. small little,0.0,0.0,0.0,4
+dummy,test,10,201,slow,85. slow,0.0,0.0,0.0,4
+dummy,test,11,74,fast,86. fast,0.0,0.0,0.0,4
+dummy,test,12,105,hot,87. hot,0.0,0.0,0.0,4
+dummy,test,13,245,warm,89. warm,0.0,0.0,0.0,4
+dummy,test,14,47,cool,90. cool,0.0,0.0,0.0,4
+dummy,test,15,145,new,91. new,0.0,0.0,0.0,4
+dummy,test,16,150,old,92. old,0.0,0.0,0.0,4
+dummy,test,17,261,young,93. young,0.0,0.0,0.0,4
+dummy,test,18,84,good,94. good,0.0,0.0,0.0,4
+dummy,test,19,10,bad,95. bad,0.0,0.0,0.0,4
+dummy,test,20,250,wet,96. wet,0.0,0.0,0.0,4

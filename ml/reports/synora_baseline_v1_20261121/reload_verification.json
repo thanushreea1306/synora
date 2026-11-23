@@ -1,0 +1,38 @@
+{
+  "random_forest:train": {
+    "mismatches": 0,
+    "reproduced": true
+  },
+  "random_forest:val": {
+    "mismatches": 0,
+    "reproduced": true
+  },
+  "random_forest:test": {
+    "mismatches": 0,
+    "reproduced": true
+  },
+  "temporal_mlp:train": {
+    "mismatches": 0,
+    "reproduced": true
+  },
+  "temporal_mlp:val": {
+    "mismatches": 0,
+    "reproduced": true
+  },
+  "temporal_mlp:test": {
+    "mismatches": 0,
+    "reproduced": true
+  },
+  "dummy:train": {
+    "mismatches": 0,
+    "reproduced": true
+  },
+  "dummy:val": {
+    "mismatches": 0,
+    "reproduced": true
+  },
+  "dummy:test": {
+    "mismatches": 0,
+    "reproduced": true
+  }
+}

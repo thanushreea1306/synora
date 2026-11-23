@@ -1,0 +1,16 @@
+true_class,predicted_class,count,reverse_count,direction,pct_of_errors
+bad,good,1,1,reciprocal,0.066667
+bad,wet,1,0,one-directional,0.066667
+biglarge,loud,1,0,one-directional,0.066667
+good,bad,1,1,reciprocal,0.066667
+hot,narrow,1,0,one-directional,0.066667
+loud,smalllittle,1,0,one-directional,0.066667
+narrow,slow,1,0,one-directional,0.066667
+narrow,wide,1,0,one-directional,0.066667
+slow,long,1,0,one-directional,0.066667
+smalllittle,narrow,1,0,one-directional,0.066667
+warm,old,1,0,one-directional,0.066667
+wet,happy,1,0,one-directional,0.066667
+wide,happy,1,0,one-directional,0.066667
+young,quiet,1,0,one-directional,0.066667
+young,slow,1,0,one-directional,0.066667

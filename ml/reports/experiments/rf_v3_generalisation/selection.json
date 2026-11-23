@@ -1,0 +1,25 @@
+{
+  "experiment_id": "synora_rf_v3_generalisation_20261122",
+  "selection_metric": "out_of_fold_macro_f1",
+  "selection_data": "346 train+val samples; no test split",
+  "groups": "video_id; signer identity unavailable",
+  "selected_variant": "strong_regularized_cv",
+  "selected_metrics": {
+    "macro_f1": 0.888388088345822,
+    "accuracy": 0.8901734104046243,
+    "balanced_accuracy": 0.88869658974701
+  },
+  "baseline_metrics": {
+    "macro_f1": 0.8498857701507803,
+    "accuracy": 0.8526011560693642,
+    "balanced_accuracy": 0.8498277088613223
+  },
+  "v2_original_val_metrics": {
+    "macro_f1": 0.9238095238095239,
+    "accuracy": 0.926829268292683,
+    "balanced_accuracy": 0.9285714285714286
+  },
+  "selection_uses_test": false,
+  "final_training_samples": 346,
+  "final_epochs": 55
+}

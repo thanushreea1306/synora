@@ -1,0 +1,62 @@
+{
+  "experiment_id": "v4_offline_live_parity",
+  "test_split_read": false,
+  "example_record_count": 43,
+  "example_tracking_lifecycle": [
+    "reset_at_recording_start"
+  ],
+  "example_resize_interpolation": [
+    "cv2.INTER_AREA"
+  ],
+  "example_fps": [
+    30.0
+  ],
+  "example_dimensions": [
+    [
+      1280,
+      720
+    ]
+  ],
+  "preprocessing": {
+    "offline_shape": [
+      720,
+      1280,
+      3
+    ],
+    "live_shape": [
+      720,
+      1280,
+      3
+    ],
+    "max_rgb_difference": 0,
+    "tolerance": 0,
+    "passed": true,
+    "resize_interpolation": "cv2.INTER_AREA",
+    "color_conversion": "cv2.COLOR_BGR2RGB"
+  },
+  "lifecycle": {
+    "offline_factory_count": 1,
+    "live_factory_count": 1,
+    "offline_closed": true,
+    "live_closed": true,
+    "timestamp_match": true,
+    "timestamps": [
+      0,
+      33,
+      67
+    ],
+    "tracking_lifecycle": [
+      "reset_at_recording_start",
+      "reset_at_recording_start",
+      "reset_at_recording_start"
+    ],
+    "record_comparison": {
+      "passed": true,
+      "tolerance": 1e-06,
+      "frame_count": 3,
+      "differences": []
+    },
+    "passed": true
+  },
+  "passed": true
+}

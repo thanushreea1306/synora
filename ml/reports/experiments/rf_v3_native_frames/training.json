@@ -1,0 +1,326 @@
+{
+  "experiment_id": "synora_rf_v3_native_frames_20261123",
+  "created_utc": "2026-11-22T13:47:20.997380+00:00",
+  "seed": 20261123,
+  "cv_protocol": "StratifiedGroupKFold(video_id) over 333 common train+val samples; inner split for early stopping",
+  "cv_folds": 5,
+  "split_counts": {
+    "train": 293,
+    "val": 40
+  },
+  "group_count": 333,
+  "final_info": {
+    "kind": "v3",
+    "variant": "v3_native_frames_cv",
+    "feature_mode": "base",
+    "epochs": 47,
+    "parameter_count": 25285,
+    "history": {
+      "best_epoch": 47,
+      "best_validation_macro_f1": null,
+      "epochs_completed": 47,
+      "stopped_early": false,
+      "early_stopping_data": null,
+      "class_weights": [
+        1.0507011413574219,
+        0.9270892143249512,
+        1.212347388267517,
+        0.985032320022583,
+        0.8755842447280884,
+        0.9270892143249512,
+        0.985032320022583,
+        1.125751256942749,
+        0.9270892143249512,
+        0.985032320022583,
+        1.125751256942749,
+        0.9270892143249512,
+        0.9270892143249512,
+        0.985032320022583,
+        0.9270892143249512,
+        1.0507011413574219,
+        0.985032320022583,
+        1.0507011413574219,
+        0.985032320022583,
+        0.985032320022583,
+        1.0507011413574219
+      ],
+      "label_smoothing": 0.1,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 3.4866700172424316
+        },
+        {
+          "epoch": 2,
+          "train_loss": 2.898485703901811
+        },
+        {
+          "epoch": 3,
+          "train_loss": 2.593247738751498
+        },
+        {
+          "epoch": 4,
+          "train_loss": 2.271096847274087
+        },
+        {
+          "epoch": 5,
+          "train_loss": 2.009539105675437
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.7396097833460027
+        },
+        {
+          "epoch": 7,
+          "train_loss": 1.5371953357349744
+        },
+        {
+          "epoch": 8,
+          "train_loss": 1.3787385658784346
+        },
+        {
+          "epoch": 9,
+          "train_loss": 1.2587604414332996
+        },
+        {
+          "epoch": 10,
+          "train_loss": 1.1707526662132957
+        },
+        {
+          "epoch": 11,
+          "train_loss": 1.1150280779058284
+        },
+        {
+          "epoch": 12,
+          "train_loss": 1.0595573024316267
+        },
+        {
+          "epoch": 13,
+          "train_loss": 1.0074490092017434
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.9651892672885548
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.9391330534761603
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.9127615202556957
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.88998037034815
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.87514113296162
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.8672672781077299
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.8465410470962524
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.8349342292005365
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.8215722008184954
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.8157982663674788
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.8082383491776206
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.8041646372188221
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.7969791401516307
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.7916134379126809
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.7827774719758467
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.7739933404055509
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.7693296779285778
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.7645626826719805
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.7642488208684054
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.7594512430104342
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.7555367567322471
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.7553080753846602
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.7493140914223411
+        },
+        {
+          "epoch": 37,
+          "train_loss": 0.7475196502425454
+        },
+        {
+          "epoch": 38,
+          "train_loss": 0.745486394925551
+        },
+        {
+          "epoch": 39,
+          "train_loss": 0.7411579869010232
+        },
+        {
+          "epoch": 40,
+          "train_loss": 0.739310855215246
+        },
+        {
+          "epoch": 41,
+          "train_loss": 0.735669423233379
+        },
+        {
+          "epoch": 42,
+          "train_loss": 0.7322286042300138
+        },
+        {
+          "epoch": 43,
+          "train_loss": 0.7315352504903619
+        },
+        {
+          "epoch": 44,
+          "train_loss": 0.729268111965873
+        },
+        {
+          "epoch": 45,
+          "train_loss": 0.7281550006432966
+        },
+        {
+          "epoch": 46,
+          "train_loss": 0.7243727337230336
+        },
+        {
+          "epoch": 47,
+          "train_loss": 0.722876787185669
+        }
+      ]
+    },
+    "config": {
+      "architecture": "framewise_shared_mlp_masked_mean_max_pooling_regularized",
+      "input_shape": [
+        346,
+        89,
+        135
+      ],
+      "frame_layers": [
+        135,
+        96,
+        48
+      ],
+      "pooled_features": 96,
+      "head_layers": [
+        96,
+        64,
+        21
+      ],
+      "activation": "relu",
+      "pooling": [
+        "masked_mean",
+        "masked_max"
+      ],
+      "max_epochs": 47,
+      "batch_size": 32,
+      "learning_rate": 0.001,
+      "beta1": 0.9,
+      "beta2": 0.999,
+      "epsilon": 1e-08,
+      "weight_decay": 0.0001,
+      "early_stopping_metric": "macro_f1",
+      "early_stopping_mode": "max",
+      "early_stopping_patience": 20,
+      "min_delta": 1e-06,
+      "seed": 20261123,
+      "initialization": "he_normal_frame_layers_he_uniform_head",
+      "input_mask_policy": {
+        "padding": "padded frame vectors zeroed and excluded from pooling",
+        "presence": "left/right coordinate and confidence channels zeroed unless present",
+        "missing": "left_hand_missing/right_hand_missing and no_hand_frame retained as channels",
+        "frame_real": "only frame_real=1 frames contribute to masked mean and max"
+      },
+      "preprocessing": {
+        "source": "existing mlp_preprocessing.npz",
+        "fit_splits": [
+          "train"
+        ],
+        "refit": false,
+        "scaled_channels": "observed normalized landmark coordinates only"
+      },
+      "training_input_shape": [
+        346,
+        89,
+        135
+      ],
+      "frame_input_shape": [
+        89,
+        135
+      ],
+      "early_stopping_data": "inner_train_val",
+      "regularization": {
+        "label_smoothing": 0.1,
+        "class_weight_power": 1.0,
+        "class_weight_rule": "inverse_frequency_raised_to_power_normalized_to_mean_one"
+      },
+      "selection_split": "train_val_group_cv",
+      "variant": "v3_native_frames_cv",
+      "selection_data": "333 common train+val samples shared with V4; no test split",
+      "training_input": "V4 native base tensor; one detection per real source frame"
+    }
+  },
+  "oof_metrics": {
+    "macro_f1": 0.8902215925378172,
+    "accuracy": 0.8888888888888888,
+    "balanced_accuracy": 0.8873414322994156
+  },
+  "calibration": {
+    "temperature": 0.5341285200582638,
+    "threshold": 0.56,
+    "coverage": 0.9009009009009009,
+    "accepted_accuracy": 0.9333333333333333,
+    "nll_before": 0.5903906292975309,
+    "nll_after": 0.40117106023421517,
+    "ece_before": 0.21455845162764392,
+    "ece_after": 0.02744973889877232
+  },
+  "fit_seconds": 66.565
+}

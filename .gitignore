@@ -4,3 +4,17 @@ dist/
 .env.*
 !.env.example
 .DS_Store
+
+# SYNORA ML local environment
+ml/.venv/
+
+# Dataset files (keep large data local)
+ml/dataset/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# Local experiment/cache files
+.pytest_cache/
+.mypy_cache/

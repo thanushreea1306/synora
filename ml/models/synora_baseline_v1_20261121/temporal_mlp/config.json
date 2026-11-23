@@ -1,0 +1,51 @@
+{
+  "architecture": "framewise_shared_mlp_masked_mean_max_pooling",
+  "input_shape": [
+    443,
+    89,
+    135
+  ],
+  "frame_layers": [
+    135,
+    96,
+    48
+  ],
+  "pooled_features": 96,
+  "head_layers": [
+    96,
+    64,
+    21
+  ],
+  "activation": "relu",
+  "pooling": [
+    "masked_mean",
+    "masked_max"
+  ],
+  "max_epochs": 120,
+  "batch_size": 32,
+  "learning_rate": 0.001,
+  "beta1": 0.9,
+  "beta2": 0.999,
+  "epsilon": 1e-08,
+  "weight_decay": 0.0001,
+  "early_stopping_metric": "macro_f1",
+  "early_stopping_mode": "max",
+  "early_stopping_patience": 20,
+  "min_delta": 1e-06,
+  "seed": 20261121,
+  "initialization": "he_normal_frame_layers_he_uniform_head",
+  "input_mask_policy": {
+    "padding": "padded frame vectors zeroed and excluded from pooling",
+    "presence": "left/right coordinate and confidence channels zeroed unless present",
+    "missing": "left_hand_missing/right_hand_missing and no_hand_frame retained as channels",
+    "frame_real": "only frame_real=1 frames contribute to masked mean and max"
+  },
+  "preprocessing": {
+    "source": "existing mlp_preprocessing.npz",
+    "fit_splits": [
+      "train"
+    ],
+    "refit": false,
+    "scaled_channels": "observed normalized landmark coordinates only"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "estimator": "sklearn.dummy.DummyClassifier",
+  "strategy": "most_frequent",
+  "random_state": 20261121,
+  "role": "reference_baseline_not_an_ml_model"
+}

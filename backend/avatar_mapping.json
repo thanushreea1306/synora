@@ -1,0 +1,22 @@
+{
+  "phrases": {
+    "HOW ARE YOU": "how_are_you",
+    "THANK YOU": "thank_you",
+    "GOOD MORNING": "good_morning",
+    "GOOD NIGHT": "good_night",
+    "I AM FINE": "i_am_fine",
+    "PLEASE HELP ME": "please_help_me"
+  },
+  "signs": {
+    "HELLO": "hello",
+    "YES": "yes",
+    "NO": "no",
+    "PLEASE": "please",
+    "SORRY": "sorry",
+    "HELP": "help",
+    "WATER": "water",
+    "FOOD": "food",
+    "THANKS": "thank_you",
+    "GOODBYE": "goodbye"
+  }
+}

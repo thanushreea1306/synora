@@ -8,7 +8,7 @@ import { playSign } from './animations/signPlayer';
 import Camera from './Camera';
 import Chat from './Chat';
 
-function Avatar({ testArm }) {
+function Avatar({ signRequest }) {
   const { scene } = useGLTF('/models/Female_Adult_03.glb');
   const originalRotations = useRef(null);
 
@@ -30,16 +30,6 @@ function Avatar({ testArm }) {
 
     originalRotations.current = bones;
 
-    const upperArm = scene.getObjectByName('Bip01_R_UpperArm');
-
-    if (upperArm) {
-      console.log('Right arm original rotation:', {
-        x: upperArm.rotation.x,
-        y: upperArm.rotation.y,
-        z: upperArm.rotation.z
-      });
-    }
-
     console.log('Original arm and finger rotations saved');
   }, [scene]);
 
@@ -56,10 +46,10 @@ function Avatar({ testArm }) {
       }
     );
 
-    if (testArm) {
-      playSign(scene, 'HELLO');
+    if (signRequest.signId) {
+      playSign(scene, signRequest.signId);
     }
-  }, [scene, testArm]);
+  }, [scene, signRequest]);
 
   return (
     <primitive
@@ -71,7 +61,11 @@ function Avatar({ testArm }) {
 }
 
 function App() {
-  const [testArm, setTestArm] = useState(false);
+  const [signRequest, setSignRequest] = useState({
+    signId: null,
+    count: 0
+  });
+
   const [uploadedImage, setUploadedImage] = useState(null);
   const imageInputRef = useRef(null);
 
@@ -87,6 +81,22 @@ function App() {
       const imageURL = URL.createObjectURL(file);
       setUploadedImage(imageURL);
     }
+  };
+
+  const demonstrateSign = (signId) => {
+    setSignRequest((previous) => ({
+      signId,
+      count: previous.count + 1
+    }));
+
+    scrollToSection('home');
+  };
+
+  const resetPose = () => {
+    setSignRequest((previous) => ({
+      signId: null,
+      count: previous.count + 1
+    }));
   };
 
   const scrollToSection = (id) => {
@@ -183,7 +193,7 @@ function App() {
                 />
 
                 <Suspense fallback={null}>
-                  <Avatar testArm={testArm} />
+                  <Avatar signRequest={signRequest} />
                 </Suspense>
 
                 <OrbitControls
@@ -208,14 +218,14 @@ function App() {
           >
             <button
               className="primary-button"
-              onClick={() => setTestArm(true)}
+              onClick={() => demonstrateSign('HELLO')}
             >
               Play HELLO
             </button>
 
             <button
               className="secondary-button"
-              onClick={() => setTestArm(false)}
+              onClick={resetPose}
             >
               Reset Pose
             </button>
@@ -311,7 +321,7 @@ function App() {
         </div>
       </section>
 
-      <Lessons />
+      <Lessons onDemonstrateSign={demonstrateSign} />
 
       <footer id="about">
         <h2>SYNORA<span>.</span></h2>

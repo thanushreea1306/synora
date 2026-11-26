@@ -1,9 +1,11 @@
 
 import { playHello } from './hello';
+import { playThankYou } from './thankYou';
 
 // Available sign animations
 const signAnimations = {
     HELLO: playHello,
+    'THANK YOU': playThankYou,
 };
 
 // Play one sign
@@ -24,12 +26,8 @@ export async function playSignSequence(scene, signSequence) {
     for (const signId of signSequence) {
         const played = playSign(scene, signId);
 
-        if (!played) {
-            continue;
-        }
+        if (!played) continue;
 
-        // Temporary pause between signs.
-        // Replace with animation completion timing later.
         await new Promise(resolve => setTimeout(resolve, 1500));
     }
 }

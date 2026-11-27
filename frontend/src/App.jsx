@@ -4,6 +4,7 @@ import './App.css';
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
 import { playSign } from './animations/signPlayer';
 import Camera from './Camera';
 import Chat from './Chat';
@@ -21,7 +22,13 @@ function Avatar({ signRequest }) {
         (
           object.name === 'Bip01_R_UpperArm' ||
           object.name === 'Bip01_R_Forearm' ||
-          object.name.includes('Bip01_R_Finger')
+          object.name === 'Bip01_R_Hand' ||
+          object.name.includes('Bip01_R_Finger') ||
+
+          object.name === 'Bip01_L_UpperArm' ||
+          object.name === 'Bip01_L_Forearm' ||
+          object.name === 'Bip01_L_Hand' ||
+          object.name.includes('Bip01_L_Finger')
         )
       ) {
         bones[object.name] = object.rotation.clone();
@@ -30,12 +37,55 @@ function Avatar({ signRequest }) {
 
     originalRotations.current = bones;
 
-    console.log('Original arm and finger rotations saved');
+    // DEBUG: Print actual arm, hand, finger and chest bone positions
+    scene.updateMatrixWorld(true);
+
+    console.log('========== SYNORA BONE POSITIONS ==========');
+
+    scene.traverse((object) => {
+      if (
+        object.isBone &&
+        /Spine|Clavicle|UpperArm|Forearm|Hand|Finger|Neck|Head/i.test(
+          object.name
+        )
+      ) {
+        const position = object.getWorldPosition(
+          new THREE.Vector3()
+        );
+
+        const rotation = object.rotation;
+
+        console.log('BONE:', object.name);
+        console.log('WORLD POSITION:', position.toArray());
+        console.log('LOCAL ROTATION:', [
+          rotation.x,
+          rotation.y,
+          rotation.z
+        ]);
+      }
+    });
+
+    console.log('========== END BONE POSITIONS ==========');
+    console.log('Original arm, hand and finger rotations saved');
   }, [scene]);
 
   useEffect(() => {
     if (!originalRotations.current) return;
 
+    // Stop previous animations
+    scene.userData.stopNoAnimation?.();
+    scene.userData.stopNoAnimation = null;
+
+    scene.userData.stopYesAnimation?.();
+    scene.userData.stopYesAnimation = null;
+
+    scene.userData.stopThankYouAnimation?.();
+    scene.userData.stopThankYouAnimation = null;
+
+    scene.userData.stopPleaseAnimation?.();
+    scene.userData.stopPleaseAnimation = null;
+
+    // Restore all original bone rotations
     Object.entries(originalRotations.current).forEach(
       ([name, rotation]) => {
         const bone = scene.getObjectByName(name);
@@ -46,9 +96,20 @@ function Avatar({ signRequest }) {
       }
     );
 
+    scene.updateMatrixWorld(true);
+
+    // Play the selected sign
     if (signRequest.signId) {
       playSign(scene, signRequest.signId);
     }
+
+    // Stop animations when changing signs or resetting
+    return () => {
+      scene.userData.stopNoAnimation?.();
+      scene.userData.stopYesAnimation?.();
+      scene.userData.stopThankYouAnimation?.();
+      scene.userData.stopPleaseAnimation?.();
+    };
   }, [scene, signRequest]);
 
   return (

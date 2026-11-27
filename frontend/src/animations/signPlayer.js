@@ -1,11 +1,19 @@
 
 import { playHello } from './hello';
 import { playThankYou } from './thankYou';
+import { playYes } from './yes';
+import { playNo } from './no';
+import { playPlease } from './please';
+import { playSorry } from './sorry';
 
 // Available sign animations
 const signAnimations = {
     HELLO: playHello,
     'THANK YOU': playThankYou,
+    YES: playYes,
+    NO: playNo,
+    PLEASE: playPlease,
+    SORRY: playSorry,
 };
 
 // Play one sign
